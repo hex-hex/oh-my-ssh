@@ -1,11 +1,11 @@
 version: '3.3'
 services:
   bastion:
-    image: registry.wawadata.com/bastion-node:1
+    image: registry.wawadata.com/bastion-node:7
     ports:
       - 33:22
     volumes:
-      - /home/ubuntu/docker/bastion/user:/root
+      - /home/ubuntu/docker/bastion/data:/root
     deploy:
       mode: replicated
       replicas: 1
