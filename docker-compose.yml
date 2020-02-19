@@ -1,0 +1,19 @@
+version: '3.3'
+services:
+  bastion:
+    image: registry.wawadata.com/bastion-node:1
+    ports:
+      - 33:22
+    volumes:
+      - /home/ubuntu/docker/bastion/user:/root
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == manager
+    networks:
+      - traefik-net
+networks:
+  traefik-net:
+    external: true
