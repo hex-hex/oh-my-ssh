@@ -3,6 +3,7 @@ WORKDIR /root
 COPY install.sh install.sh 
 RUN apt-get update && \
  apt-get install -y openssh-server iputils-ping zsh git curl vim  mysql-client redis-tools postgresql-client && \
+ apt-get upgrade -y && \
  mkdir /var/run/sshd && \
  mkdir /root/.ssh && \
  echo 'root:root' | chpasswd && \
